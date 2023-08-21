@@ -1,4 +1,5 @@
 const { Schema, model, Types } = require('mongoose');
+const formatDate = require('../utils/formatDate');
 
 const thoughtSchema = new Schema(
     {
@@ -12,7 +13,7 @@ const thoughtSchema = new Schema(
             type: Date,
             default: Date.now,
             // Use a getter method to format the timestamp on query
-            get: (timestamp) => dateFormat(timestamp),
+            get: (timestamp) => formatDate(timestamp),
         },
         username: {
             type: String,
@@ -51,7 +52,7 @@ const reactionSchema = new Schema(
             //Default set to the current timestamp
             default: Date.now,
             //Use getter method to format the timestamp on query
-            get: (timestamp) => dateFormat(timestamp),
+            get: (timestamp) => formatDate(timestamp),
         }
     },
     {
