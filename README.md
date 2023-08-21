@@ -20,7 +20,7 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 
 ## Walkthrough Video Link
 
-https://drive.google.com/file/d/1pUdXPtrMiCSJuGzRUxpYC2tQBYjwUDDt/view
+https://drive.google.com/file/d/1Zgu_g_zbFaAqtdIWaioQABkOCbN5SAP1/view
 
 ## Setup and Usage
 
