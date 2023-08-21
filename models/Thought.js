@@ -1,35 +1,6 @@
 const { Schema, model, Types } = require('mongoose');
 const formatDate = require('../utils/formatDate');
 
-const thoughtSchema = new Schema(
-    {
-        thoughtText: {
-            type: String,
-            required: 'Thought is required',
-            minlength: 1,
-            maxlength: 280,
-        },
-        createdAt: {
-            type: Date,
-            default: Date.now,
-            // Use a getter method to format the timestamp on query
-            get: (timestamp) => formatDate(timestamp),
-        },
-        username: {
-            type: String,
-            Required: true,
-        },
-        reactions: [reactionSchema],
-    },
-    {
-        toJSON: {
-            virtuals: true,
-            getters: true,
-        },
-        id: false,
-    }
-);
-
 const reactionSchema = new Schema(
     {
         reactionId: {
@@ -57,6 +28,35 @@ const reactionSchema = new Schema(
     },
     {
         toJSON: {
+            getters: true,
+        },
+        id: false,
+    }
+);
+
+const thoughtSchema = new Schema(
+    {
+        thoughtText: {
+            type: String,
+            required: 'Thought is required',
+            minlength: 1,
+            maxlength: 280,
+        },
+        createdAt: {
+            type: Date,
+            default: Date.now,
+            // Use a getter method to format the timestamp on query
+            get: (timestamp) => formatDate(timestamp),
+        },
+        username: {
+            type: String,
+            Required: true,
+        },
+        reactions: [reactionSchema],
+    },
+    {
+        toJSON: {
+            virtuals: true,
             getters: true,
         },
         id: false,
